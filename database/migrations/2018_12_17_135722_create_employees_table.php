@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIncomesTable extends Migration
+class CreateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,20 @@ class CreateIncomesTable extends Migration
      */
     public function up()
     {
-        Schema::create('incomes', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('address');
+            $table->string('phone');
+            $table->integer('prevision');
+            $table->integer('afp');
+            $table->integer('ccaf');
+            $table->timestamp('date_in');
+            $table->integer('vacations');
+
             $table->unsignedInteger('buildings_id');
             $table->foreign('buildings_id')->references('id')->on('buildings');
-            $table->unsignedInteger('users_id')->nullable();
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->unsignedInteger('providers_id')->nullable();
-            $table->foreign('providers_id')->references('id')->on('providers');
-            $table->integer('type');
-            $table->timestamp('income_date');
-            $table->integer('value');
             $table->timestamps();
         });
     }
@@ -35,6 +38,6 @@ class CreateIncomesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incomes');
+        Schema::dropIfExists('employees');
     }
 }

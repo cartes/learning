@@ -14,5 +14,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Account extends Model
 {
-    //
+    const VISTA = 1;
+    const CORRIENTE = 2;
+    const AHORRO = 3;
+    const OTHER = 4;
 }

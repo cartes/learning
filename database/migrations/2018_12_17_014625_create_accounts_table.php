@@ -17,6 +17,9 @@ class CreateAccountsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('buildings_id');
             $table->foreign('buildings_id')->references('id')->on('buildings');
+            $table->string('bank');
+            $table->string('number');
+            $table->enum('type', [\App\Account::VISTA, \App\Account::CORRIENTE, \App\Account::AHORRO, \App\Account::OTHER]);
             $table->timestamps();
         });
     }

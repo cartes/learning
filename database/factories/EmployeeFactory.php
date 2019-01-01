@@ -18,5 +18,10 @@ $factory->define(App\Employee::class, function (Faker $faker){
         'phone' => $faker->phoneNumber,
         'prevision_id' => null,
         'afp_id' => null,
+        'ccaf_id' => null,
+        'date_in' => $faker->date(['Y-m-d']),
+        'vacations' => null,
+        'charges' => null,
+        'buildings_id' => null,
     ];
 });

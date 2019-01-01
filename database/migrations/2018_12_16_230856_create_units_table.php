@@ -18,9 +18,9 @@ class CreateUnitsTable extends Migration
             $table->string('name_unit');
             $table->string('rate_unit');
             $table->string('type_unit');
-            $table->integer('asignation_id')->nullable();
-            $table->unsignedInteger('resident_id')->nullable();
-            $table->foreign('resident_id')->references('id')->on('users');
+            $table->unsignedInteger('asignation_id')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('owner_id')->nullable();
             $table->foreign('owner_id')->references('id')->on('users');
             $table->unsignedInteger('buildings_id');

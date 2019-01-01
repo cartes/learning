@@ -15,10 +15,15 @@ use Faker\Generator as Faker;
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
+        'role_id' => $faker->randomElement([\App\Role::STAFF, \App\Role::RESIDENT]),
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+
+        'picture' => \Faker\Provider\Image::image(storage_path('app/public/users'), 200, 200, 'people', false),
+
+        'buildings_id' => \App\Building::all()->first()->id,
         'remember_token' => str_random(10),
     ];
 });

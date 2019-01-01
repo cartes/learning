@@ -15,6 +15,7 @@ class CreateIncomesTable extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('rut');
             $table->unsignedInteger('buildings_id');
             $table->foreign('buildings_id')->references('id')->on('buildings');
             $table->unsignedInteger('users_id')->nullable();

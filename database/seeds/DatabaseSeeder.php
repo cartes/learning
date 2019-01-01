@@ -11,6 +11,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        factory(\App\Building::class, 1)->create();
+
+        factory(\App\Role::class, 1)->create(['name' => 'Admin']);
+        factory(\App\Role::class, 1)->create(['name' => 'Staff']);
+        factory(\App\Role::class, 1)->create(['name' => 'Resident']);
+
+        factory(\App\User::class, 20)->create()
+            ->each(function (\App\User $u) {
+                if ($u->role_id == 2) {
+                    factory(\App\Resident::class, 1)->create(["user_id" => $u->id]);
+                }
+        });
+        factory(\App\Unit::class, 40)->create();
     }
 }

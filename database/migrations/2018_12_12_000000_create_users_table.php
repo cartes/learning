@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
         });
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('role_id')->default(\App\Role::RESIDENT);
+            $table->unsignedInteger('role_id')->default(\App\Role::RESIDENT)->nullable();
             $table->foreign('role_id')->references('id')->on('roles');
             $table->string('name');
             $table->string('email')->unique();

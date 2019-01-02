@@ -18,4 +18,20 @@ class Employee extends Model
     const ISAPRE = 2;
     const CCAF = 3;
     const OTHER = 4;
+
+    public function prevision() {
+        return $this->belongsTo(Social::class)->select('id');
+    }
+
+    public function afp() {
+        return $this->belongsTo(Social::class);
+    }
+
+    public function ccaf() {
+        return $this->belongsTo(Social::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

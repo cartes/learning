@@ -14,5 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Building extends Model
 {
-    //
+    public function unit() {
+        return $this->hasOne(Unit::class);
+    }
 }

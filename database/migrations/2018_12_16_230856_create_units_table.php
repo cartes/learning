@@ -27,11 +27,6 @@ class CreateUnitsTable extends Migration
             $table->foreign('buildings_id')->references('id')->on('buildings');
             $table->timestamps();
         });
-        Schema::create('assignations', function(Blueprint $table){
-           $table->increments('id');
-           $table->unsignedInteger('unit_id');
-           $table->foreign('unit_id')->references('id')->on('units');
-        });
     }
 
     /**

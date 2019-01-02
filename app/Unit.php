@@ -14,5 +14,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Unit extends Model
 {
-    //
+    public function building() {
+        return $this->belongsTo(Building::class)->select('id', 'name', 'building_id');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class)->select('id', 'role_id', 'email', 'picture');
+    }
+
+    public function assignations() {
+        return $this->hasMany(Assignation::class)->select('id', 'unit_id', 'assignation_id');
+    }
 }

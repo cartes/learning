@@ -33,6 +33,8 @@ class CreateEmployeesTable extends Migration
             $table->timestamp('date_in');
             $table->integer('vacations');
             $table->integer('charges')->nullable();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->unsignedInteger('buildings_id');
             $table->foreign('buildings_id')->references('id')->on('buildings');
